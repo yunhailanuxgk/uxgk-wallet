@@ -1,2 +1,2 @@
-# uxgk-wallet
-Pc wallet for UXGK
+# imWallet
+PC wallet for uxgk
