@@ -252,6 +252,7 @@ class Manager {
         let stream
         this._logger.info(`client.version===>${client.version}`)
         if (localVersion === client.version) {
+          this._logger.info(`download local file`)
           stream = fs.createReadStream(path.join(localFilePath, localFile))
         } else {
           stream = got.stream(downloadCfg.url)
