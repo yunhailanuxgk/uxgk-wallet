@@ -25,6 +25,13 @@
            :label="$t('account.btn.transfer')"
            @click="$router.push('/transfer/account/' + account.address)" />
 
+    <q-btn flat
+           size="lg"
+           color="secondary"
+           icon="fas fa-plus-square"
+           :label="$t('account.btn.addAssets')"
+           @click="searchToken(account.address)" />
+
     <br><br>
 
     <transaction-list :items="txList" />
@@ -62,6 +69,7 @@ div.changename-btn
 import { shell } from 'electron'
 // const { app, dialog } = remote
 // import fs from 'fs-extra'
+import _ from 'lodash'
 import path from 'path'
 
 export default {
@@ -110,6 +118,19 @@ export default {
         })
         this.showModifyModal = false
       }
+    },
+    searchToken () {
+      this.$axios.get('').then(response => {
+        if (response.status === 200) {
+          if (response.data.code === 200) {
+           _.map(response.data.data.list, (token) => {
+             return { 'name': token.symbol, 'decimals': token.decimals, 'address': token.address }
+           })
+          }
+        }
+      }).catch(error => {
+        console.error(error)
+      })
     }
   },
 

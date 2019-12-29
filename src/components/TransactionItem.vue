@@ -17,19 +17,25 @@
          </span>
    </div>
    <div>
-     <div>
+     <div :class="{hidden: !showElapsedTime}">
        <span> {{fromNow(item.timestamp)}} </span>
+     </div>
+     <div :class="{hidden: !showProgress}">
+       <span> {{item.confirmCount}} / {{$settings.requiredConfirmations}} {{$t('tx.list.block_confirm')}} </span>
+     </div>
+     <div :class="{hidden: !isPending}">
+       <span> {{$t('tx.list.pending')}} </span>
      </div>
    </div>
    <div>
      <div v-if="address===undefined" color="negative">
-       {{toSMT(item.value)}} {{$unit}}
+       {{toUXGK(item.value)}} {{$unit}}
      </div>
      <div class="trans-fee" v-else-if="address===item.from">
-       -{{toSMT(item.value)}} {{$unit}}
+       -{{toUXGK(item.value)}} {{$unit}}
      </div>
      <div class="trans-fee" v-else-if="address===item.to">
-       +{{toSMT(item.value)}} {{$unit}}
+       +{{toUXGK(item.value)}} {{$unit}}
      </div>
    </div>
    <q-modal class="transfer-item" v-model="showTransactionModal"
@@ -57,7 +63,7 @@
      </div>
      <div class="row q-pa-md">
        <div class="col">{{$t('tx.transfer.confirm.transfer_amount')}}：</div>
-       <div>{{toSMT(item.value)}} {{$unit}}</div>
+       <div>{{toUXGK(item.value)}} {{$unit}}</div>
      </div>
      <div class="row q-pa-md">
        <div class="col">{{$t('tx.transfer.confirm.fee')}}：</div>
@@ -84,7 +90,7 @@ div.trans-container div:nth-child(1)
 div.trans-container div:nth-child(2)
     width 18%
 div.trans-container div:nth-child(3)
-  width 39%
+  width 36%
 div.trans-container div:nth-child(4)
   width 13%
 div.trans-container div:nth-child(5)
@@ -134,7 +140,7 @@ export default {
     fromNow (timestamp) {
       return this.$moment.unix(timestamp).fromNow()
     },
-    toSMT (value) {
+    toUXGK (value) {
       if (!value) {
         return 0
       }
@@ -153,7 +159,7 @@ export default {
       if (!this.item.receipt) {
         this.estimateGas()
       } else {
-        this.gasFee = this.toSMT(this.item.receipt.gasUsed * this.item.gasPrice)
+        this.gasFee = this.toUXGK(this.item.receipt.gasUsed * this.item.gasPrice)
       }
     },
     estimateGas: _.debounce(function () {

@@ -18,6 +18,10 @@ export default {
     transfer: {
       label: '转账',
       sublabel: '账户之间资产转移'
+    },
+    explorer: {
+      label: '浏览器',
+      sublabel: 'UXGK区块浏览器'
     }
   },
 
@@ -34,7 +38,8 @@ export default {
       transfer: '转账',
       backupAccount: '备份',
       importAccount: '导入账户',
-      add: '创建一个新账户'
+      add: '创建一个新账户',
+      addAssets: '添加资产'
     },
     copy: {
       alert: '警告：拷贝地址',

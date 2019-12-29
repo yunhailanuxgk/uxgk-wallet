@@ -159,7 +159,7 @@ export default {
   computed: {
     balance () {
       if (this.form.from !== '') {
-        return this.getAccountSMT(this.form.from)
+        return this.getAccountUXGK(this.form.from)
       } else {
         return 0
       }
@@ -207,7 +207,7 @@ export default {
         return ''
       }
     },
-    getAccountSMT (address) {
+    getAccountUXGK (address) {
       if (address) {
         let account = this.$store.getters['account/get'](address)
         if (account != null) {

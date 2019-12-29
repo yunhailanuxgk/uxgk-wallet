@@ -18,6 +18,10 @@ export default {
     transfer: {
       label: 'Transfer',
       sublabel: 'Transfer value between accounts'
+    },
+    explorer: {
+      label: 'Explorer',
+      sublabel: 'The explorer of UXGK'
     }
   },
 
@@ -34,7 +38,8 @@ export default {
       transfer: 'Transfer',
       backupAccount: 'Backup',
       add: 'New Account',
-      importAccount: 'Import Account'
+      importAccount: 'Import Account',
+      addAssets: 'Add Asset'
     },
     copy: {
       alert: 'WARNING: Copy Address',

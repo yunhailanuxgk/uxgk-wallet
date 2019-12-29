@@ -19,6 +19,13 @@ export default [
     ]
   },
   {
+    path: '/explorer',
+    component: () => import('layouts/default'),
+    children: [
+      { path: '', component: () => import('pages/explorer') }
+    ]
+  },
+  {
     path: '/transfer',
     component: () => import('layouts/default'),
     children: [

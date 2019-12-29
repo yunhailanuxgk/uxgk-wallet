@@ -155,11 +155,11 @@ class ObserveTransaction {
 // flush transaction list of UI
 const syncTransaction = _.debounce(() => {
   global.stateManager.emit('sync', 'transaction')
-  /* global.web3.eth.isSyncing().then((result) => {
+  global.web3.eth.isSyncing().then((result) => {
     if (!result) {
       global.stateManager.emit('sync', 'transaction')
     }
-  }) */
+  })
 }, 1000)
 
 export default new ObserveTransaction()

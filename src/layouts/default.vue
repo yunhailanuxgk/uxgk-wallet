@@ -69,6 +69,11 @@
           <q-item-main :label="$t('nav.transfer.label')"
                        :sublabel="$t('nav.transfer.sublabel')" />
         </q-item>
+        <q-item to="/explorer/">
+          <q-item-side icon="search" />
+          <q-item-main :label="$t('nav.explorer.label')"
+                       :sublabel="$t('nav.explorer.sublabel')" />
+        </q-item>
       </q-list>
     </q-layout-drawer>
     <q-page-container>
