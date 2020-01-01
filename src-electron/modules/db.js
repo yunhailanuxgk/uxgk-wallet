@@ -77,6 +77,10 @@ class DatabaseManager {
   get transactions () {
     return this.getCollection('transactions')
   }
+
+  get assets () {
+    return this.getCollection('assets')
+  }
 }
 
 export default new DatabaseManager()

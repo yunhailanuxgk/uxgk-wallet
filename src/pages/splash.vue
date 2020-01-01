@@ -101,6 +101,7 @@ export default {
       // this.goto('/dashboard')
     },
     goto (path) {
+      this.$store.commit('asset/load')
       console.log('go to: ', path)
       this.$router.push(path)
     }
@@ -109,6 +110,7 @@ export default {
     this.$q.loading.show(loadingOption)
     ipc.on(Types.NODE_ALL_DONE, (event, params) => {
       this.$q.loading.hide()
+      this.$store.commit('asset/load')
       this.goto('/dashboard')
     })
 

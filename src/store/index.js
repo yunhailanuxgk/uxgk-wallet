@@ -7,11 +7,13 @@ import account from './account'
 import transaction from './transaction'
 import node from './node'
 import ui from './ui'
+import asset from './asset'
 
 let modules = {
   account,
   transaction,
   node,
+  asset,
   ui
 }
 
@@ -23,14 +25,16 @@ if (process.env.DEV && module.hot) {
     './account',
     './transaction',
     './node',
-    './ui'
+    './ui',
+    './asset'
   ], () => {
     store.hotUpdate({
       modules: {
         account: require('./account').default,
         transaction: require('./transaction').default,
         node: require('./node').default,
-        ui: require('./ui').default
+        ui: require('./ui').default,
+        asset: require('./asset').default
       }
     })
   }

@@ -14,6 +14,7 @@ export default {
     ipc.on(Types.SYNC_ACCOUNT, (event, { accounts }) => {
       // console.log('restore accounts: ', accounts)
       this.$store.commit('account/reset', accounts)
+      this.$store.commit('asset/reload')
     })
 
     ipc.on(Types.SYNC_TRANSACTION, (event, { transactions }) => {

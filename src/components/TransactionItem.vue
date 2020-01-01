@@ -88,7 +88,7 @@ div.trans-container div
 div.trans-container div:nth-child(1)
     width 12%
 div.trans-container div:nth-child(2)
-    width 18%
+    width 16%
 div.trans-container div:nth-child(3)
   width 36%
 div.trans-container div:nth-child(4)
@@ -154,7 +154,6 @@ export default {
       return accountName
     },
     viewTransaction (item) {
-      console.log(this.item)
       this.showTransactionModal = true
       if (!this.item.receipt) {
         this.estimateGas()

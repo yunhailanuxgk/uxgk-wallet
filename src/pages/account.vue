@@ -9,8 +9,6 @@
       <small>{{ account.address }}</small>
     </h1>
     <br/>
-    <br/>
-
     <q-btn flat
            size="lg"
            color="secondary"
@@ -24,14 +22,13 @@
            icon="fa fa-exchange-alt"
            :label="$t('account.btn.transfer')"
            @click="$router.push('/transfer/account/' + account.address)" />
-
-    <q-btn flat
-           size="lg"
-           color="secondary"
-           icon="fas fa-plus-square"
-           :label="$t('account.btn.addAssets')"
-           @click="searchToken(account.address)" />
-
+    <h1 :v-if="assets.length!==0">{{ $t('token.list.title') }} <q-btn flat
+                                                                      size="lg"
+                                                                      color="secondary"
+                                                                      icon="fas fa-plus-square"
+                                                                      :label="$t('account.btn.addAssets')"
+                                                                      @click="searchToken()" /></h1>
+    <asset-list :assets="assets" />
     <br><br>
 
     <transaction-list :items="txList" />
@@ -48,6 +45,13 @@
                color="primary"
                class="q-my-md sub-btn"
                @click="submit" />
+      </div>
+    </q-modal>
+
+    <q-modal v-model="showTokenModal">
+      <div class="q-pa-md">
+        <p class="q-headline">{{ $t('token.list.header') }}</p>
+        <token-list :searchToken="searchToken" :items="tokens" />
       </div>
     </q-modal>
 
@@ -78,12 +82,18 @@ export default {
     return {
       showModifyModal: false,
       modifyAccountName: '',
-      trans: []
+      trans: [],
+      tokens: [],
+      showTokenModal: false
     }
   },
   computed: {
     account () {
       return this.$store.getters['account/get'](this.$route.params.address)
+    },
+    assets () {
+      let tokens = this.$store.getters['asset/getByAddress'](this.$route.params.address)
+      return tokens
     },
     txList () {
       let address = this.$route.params.address.toLowerCase()
@@ -119,15 +129,28 @@ export default {
         this.showModifyModal = false
       }
     },
-    searchToken () {
-      this.$axios.get('').then(response => {
+    searchToken (name) {
+      let _this = this
+      name = name === undefined ? '' : name
+      let url = `http://101.251.230.212:44909/api/tokens/1/100?name=${name}`
+      this.$axios.get(url).then(response => {
         if (response.status === 200) {
           if (response.data.code === 200) {
-           _.map(response.data.data.list, (token) => {
-             return { 'name': token.symbol, 'decimals': token.decimals, 'address': token.address }
-           })
+            return _.map(response.data.data.list, (token) => {
+              let contract = token.address
+              let address = _this.$route.params.address
+              let assetInDB = this.$store.getters['asset/getByAddressAndContract'](contract, address)
+              let selected = false
+              if (assetInDB) {
+                selected = true
+              }
+              return { 'name': token.symbol, 'decimals': token.decimals, 'contract': token.address, 'selected': selected, 'address': address }
+            })
           }
         }
+      }).then(tokens => {
+        _this.tokens = tokens
+        _this.showTokenModal = true
       }).catch(error => {
         console.error(error)
       })

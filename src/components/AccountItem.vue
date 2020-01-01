@@ -81,7 +81,6 @@ export default {
     qrcode (address) {
       this.showQrModal = true
       qrCode.toDataURL(address, {version: 5}).then(url => {
-        console.log(url)
         this.qrdata = url
       })
     }

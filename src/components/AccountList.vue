@@ -125,7 +125,6 @@ export default {
       this.showPasswordField = true
     },
     createAccount () {
-      // console.log('call createAccount()')
       // let $vm = this
       web3.eth.personal
         .newAccount(this.form.password)

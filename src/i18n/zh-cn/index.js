@@ -57,6 +57,18 @@ export default {
     }
   },
 
+  token: {
+    list: {
+      caption: '资产列表',
+      header: '添加资产',
+      title: '资产信息',
+      balance: '资产数量'
+    },
+    text: {
+      noTokens: '无可用资产'
+    }
+  },
+
   tx: {
     list: {
       caption: '最近交易',
@@ -69,6 +81,7 @@ export default {
       noTxs: '还未有交易历史'
     },
     transfer: {
+      title: '转账',
       from_error: '请选择转出账户',
       from_label: '转出账户',
       to_error: '不是合法的账户地址',
@@ -84,6 +97,7 @@ export default {
       block_number: '区块高度',
       from: '转出',
       to: '转入',
+      password_error: 'Wrong Password!',
       confirm: {
         title: '确认转账',
         transfer_amount: '转出金额',

@@ -57,6 +57,18 @@ export default {
     }
   },
 
+  token: {
+    list: {
+      caption: 'Asset List',
+      header: 'Add Asset',
+      title: 'Asset Info',
+      balance: 'Asset Amount'
+    },
+    text: {
+      noTokens: 'no available assets'
+    }
+  },
+
   tx: {
     list: {
       caption: 'Recent Transactions',
@@ -69,12 +81,14 @@ export default {
       noTxs: 'No transaction history'
     },
     transfer: {
+      title: 'Transfer',
       from_error: 'Please choose an account for transfer',
       from_label: 'From',
       to_error: 'Not a legal address',
       to_label: 'To',
       balance_error: 'The transfer amount must be greater than 0',
       balance_label: 'Amount',
+      password_error: 'Wrong Password!',
       balance: 'Balance',
       fee: 'Estimated Fee',
       btn: 'confirm',
