@@ -97,7 +97,8 @@ export default {
       block_number: '区块高度',
       from: '转出',
       to: '转入',
-      password_error: 'Wrong Password!',
+      password_error: '密码错误！',
+      main_not_enough: '余额不足',
       confirm: {
         title: '确认转账',
         transfer_amount: '转出金额',

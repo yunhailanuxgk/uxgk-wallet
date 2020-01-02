@@ -88,6 +88,9 @@ export default {
   props: {
     assets: {
       required: true
+    },
+    account: {
+      required: true
     }
   },
   data () {
@@ -122,8 +125,17 @@ export default {
     },
     submit () {
       console.log('submit transfer')
+      let mainBalance = new BigNumber(web3.utils.toBN(this.account.balance).toString())
+      let fee = new BigNumber('100000').multipliedBy(new BigNumber('18000000000'))
+      if (mainBalance.comparedTo(fee) < 0 || new BigNumber(this.asset.balance).comparedTo(new BigNumber(this.form.amount)) < 0) {
+        console.log('mainBalance < fee')
+        this.$q.notify(this.$t('tx.transfer.main_not_enough'))
+        this.showTokenTransferModal = false
+        this.reset()
+        return
+      }
       this.$v.form.$touch()
-      if (!this.$v.form.$error) {
+      if (this.$v.form.$error) {
         let result = new BigNumber(web3.utils.toBN(this.form.amount).toString())
         let base = Math.pow(10, this.asset['decimals'])
         let amount = result.multipliedBy(base).toFixed()

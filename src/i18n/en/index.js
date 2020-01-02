@@ -97,6 +97,7 @@ export default {
       transaction_hash: 'Transaction Hash',
       block_number: 'Block Number',
       from: 'From',
+      main_not_enough: 'Insufficient Balance',
       to: 'To',
       confirm: {
         title: 'Transfer Confirm',

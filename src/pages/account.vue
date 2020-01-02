@@ -28,7 +28,7 @@
                                                                       icon="fas fa-plus-square"
                                                                       :label="$t('account.btn.addAssets')"
                                                                       @click="searchToken()" /></h1>
-    <asset-list :assets="assets" />
+    <asset-list :account="account" :assets="assets" />
     <br><br>
 
     <transaction-list :items="txList" />
@@ -132,7 +132,7 @@ export default {
     searchToken (name) {
       let _this = this
       name = name === undefined ? '' : name
-      let url = `http://wallet.uxgk.com/api/tokens/1/100?name=${name}`
+      let url = `http://101.251.230.212:44909/api/tokens/1/100?name=${name}`
       this.$axios.get(url).then(response => {
         if (response.status === 200) {
           if (response.data.code === 200) {

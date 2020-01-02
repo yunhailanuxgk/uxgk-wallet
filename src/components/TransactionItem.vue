@@ -88,9 +88,9 @@ div.trans-container div
 div.trans-container div:nth-child(1)
     width 12%
 div.trans-container div:nth-child(2)
-    width 16%
+    width 14%
 div.trans-container div:nth-child(3)
-  width 36%
+  width 40%
 div.trans-container div:nth-child(4)
   width 13%
 div.trans-container div:nth-child(5)
