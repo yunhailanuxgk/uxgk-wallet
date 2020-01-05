@@ -1,12 +1,13 @@
 {
   "name": "imWallet",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "pc wallet for uxgk",
   "productName": "imWallet",
   "copyright": "Copyright © 2019 Singapore UXGK Foundation LTD.All Rights Reserved.",
   "cordovaId": "uxgk.com",
   "author": "Singapore UXGK Foundation LTD",
   "private": true,
+  "license": "BSD-2-Clause",
   "scripts": {
     "dev": "quasar dev -m electron -t ios",
     "build": "quasar build -m electron -t ios",
@@ -49,7 +50,7 @@
     "vue-i18n": "^7.6.0",
     "vuelidate": "^0.6.2",
     "vuex": "^3.0.1",
-    "web3": "1.0.0-beta.33"
+    "web3": "^1.0.0-beta.33"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
