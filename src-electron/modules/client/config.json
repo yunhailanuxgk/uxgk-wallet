@@ -6,7 +6,7 @@
         "mac": {
           "download": {
             "url": "https://raw.githubusercontent.com/yunhailanuxgk/uxgk-wallet/master/src/statics/mac/uxgk-darwin_0_2_2.tar.gz",
-            "md5": "12c34c66856558bf83dcf134351089b3",
+            "md5": "71795ce657c32ebe9229010021544607",
             "type": "tar",
             "bin": "uxgk-darwin-0_2_2/uxgk"
           },
@@ -21,7 +21,7 @@
         "win": {
           "download": {
             "url": "https://raw.githubusercontent.com/yunhailanuxgk/uxgk-wallet/master/src/statics/win/uxgk-win_0_2_2.zip",
-            "md5": "cefa6099b7d4678c9ae6c2563f61baa9",
+            "md5": "a29eb158ae1f3ea9e90dcf2620fdec67",
             "type": "zip",
             "bin": "uxgk-win-0_2_2\\uxgk.exe"
           },
