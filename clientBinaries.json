@@ -1,35 +1,35 @@
 {
   "clients": {
     "uxgk": {
-      "version": "0.2.0",
+      "version": "0.2.2",
       "platforms": {
         "mac": {
           "download": {
-            "url": "https://raw.githubusercontent.com/yunhailanuxgk/uxgk-wallet/master/src/statics/mac/uxgk-darwin_0_2_0.tar.gz",
+            "url": "https://raw.githubusercontent.com/yunhailanuxgk/uxgk-wallet/master/src/statics/mac/uxgk-darwin_0_2_2.tar.gz",
             "md5": "12c34c66856558bf83dcf134351089b3",
             "type": "tar",
-            "bin": "uxgk-darwin-0_2_0/uxgk"
+            "bin": "uxgk-darwin-0_2_2/uxgk"
           },
           "bin": "uxgk",
           "commands": {
             "sanity": {
               "args": ["version"],
-              "output": ["uxgk", "0.2.0"]
+              "output": ["uxgk", "0.2.2"]
             }
           }
         },
         "win": {
           "download": {
-            "url": "https://raw.githubusercontent.com/yunhailanuxgk/uxgk-wallet/master/src/statics/win/uxgk-win_0_2_0.zip",
+            "url": "https://raw.githubusercontent.com/yunhailanuxgk/uxgk-wallet/master/src/statics/win/uxgk-win_0_2_2.zip",
             "md5": "cefa6099b7d4678c9ae6c2563f61baa9",
             "type": "zip",
-            "bin": "uxgk-win-0_2_0\\uxgk.exe"
+            "bin": "uxgk-win-0_2_2\\uxgk.exe"
           },
           "bin": "uxgk.exe",
           "commands": {
             "sanity": {
               "args": ["version"],
-              "output": ["uxgk", "0.2.0"]
+              "output": ["uxgk", "0.2.2"]
             }
           }
         }
